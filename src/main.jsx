@@ -8,7 +8,7 @@ import { ApolloProvider } from "@apollo/client/react";
 
 const client = new ApolloClient({
   link: new HttpLink({
-    uri: "https://us-west-2.cdn.hygraph.com/content/cmtrc0cgp00hf06th2rhmwk2i/master",
+    uri: import.meta.env.VITE_APP_HYGRAPH_URI,
   }),
   cache: new InMemoryCache(),
 });

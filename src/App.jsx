@@ -1,6 +1,7 @@
 import { gql } from "@apollo/client";
 import { useQuery } from "@apollo/client/react";
 
+import Layout from "./layout/Layout";
 const QUERY = gql`
   query {
     authors {
@@ -12,12 +13,8 @@ const QUERY = gql`
 function App() {
   const response = useQuery(QUERY);
   console.log(response);
-  
-  return (
-    <>
-      <h1 className="bg-slate-500 font-light text-3xl">وبلاگ من</h1>
-    </>
-  );
+
+  return <Layout />;
 }
 
 export default App;
