@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/client/react";
 
 import Layout from "./layout/Layout";
 import HomePage from "./pages/HomePage";
+import ArticlesPage from "./pages/ArticlesPage";
 const QUERY = gql`
   query {
     authors {
@@ -17,7 +18,7 @@ function App() {
 
   return (
     <Layout>
-      <HomePage />
+      <ArticlesPage/>
     </Layout>
   );
 }
