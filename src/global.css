@@ -30,6 +30,11 @@
   --danger: #ef4444;
   --warning: #f59e0b;
 
+  /* Hero */
+  --hero-bg: #eaf3ff;
+  --hero-text: #172554;
+  --hero-description: #475569;
+
   /* Shadow */
   --shadow-color: rgb(15 23 42 / 0.08);
 
@@ -83,6 +88,11 @@
   --danger: #f87171;
   --warning: #fbbf24;
 
+  /* Hero */
+  --hero-bg: #172a4a;
+  --hero-text: #f8fafc;
+  --hero-description: #cbd5e1;
+  
   /* Shadow */
   --shadow-color: rgb(0 0 0 / 0.25);
 }
