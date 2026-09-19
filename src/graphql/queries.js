@@ -9,6 +9,7 @@ const GET_BLOGS_INFO = gql`
           avatar {
             url
           }
+          field
         }
       }
       title
@@ -17,6 +18,7 @@ const GET_BLOGS_INFO = gql`
       cover {
         url
       }
+      publishedDate
     }
   }
 `;

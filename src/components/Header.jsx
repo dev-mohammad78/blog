@@ -4,7 +4,7 @@ import ThemeToggle from "./ThemeToggle";
 function Header() {
   return (
     <div
-      className="bg-[var(--primary)] flex items-center justify-between
+      className="bg-[var(--primary)] lg:rounded-b-lg flex items-center justify-between
      p-3 font-bold text-xl"
     >
 
