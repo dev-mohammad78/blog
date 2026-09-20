@@ -1,7 +1,6 @@
 import { formatPersianDate } from "../helper/formatPersianDate";
 
 function SingleCard({ authors, title, cover, slug, publishedDate }) {
-  console.log({ authors, title, cover, slug, publishedDate });
 
   return (
     <div className="h-full flex flex-col border-2 border-[var(--border-color)] rounded-lg shadow-[var(--shadow-color)]">
