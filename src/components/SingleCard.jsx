@@ -1,7 +1,7 @@
+import { Link } from "react-router-dom";
 import { formatPersianDate } from "../helper/formatPersianDate";
 
-function SingleCard({ authors, title, cover, slug, publishedDate }) {
-
+function SingleCard({ authors, title, content, cover, slug, publishedDate }) {
   return (
     <div className="h-full flex flex-col border-2 border-[var(--border-color)] rounded-lg shadow-[var(--shadow-color)]">
       {/* img */}
@@ -36,9 +36,12 @@ function SingleCard({ authors, title, cover, slug, publishedDate }) {
         <p className="mt-5 text-sm text-[var(--text-secondary)]">
           {formatPersianDate(publishedDate)}
         </p>
-        <button className="mt-4 p-2 border border-[var(--primary-hover)] rounded-lg text-sm text-[var(--primary-hover)] font-semibold">
-          مطالعه مقاله
-        </button>
+        <Link
+          to={`/articles/${slug}`}
+          className="mt-4 p-2 border border-[var(--primary-hover)] rounded-lg text-sm text-[var(--primary-hover)] font-semibold text-center cursor-pointer"
+        >
+          <button className="cursor-pointer">مطالعه مقاله</button>
+        </Link>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import { useQuery } from "@apollo/client/react";
 import { GET_AUTHORS_INFO } from "../graphql/queries";
+import { Link } from "react-router-dom";
 
 function Authors() {
   const { loading, data } = useQuery(GET_AUTHORS_INFO);
@@ -22,13 +23,18 @@ export default Authors;
 
 function Author({ id, name, field, slug, avatar }) {
   return (
-    <div className="flex items-center gap-x-4 py-4 border-b last:border-b-0 border-[var(--border-color)]">
-      <img src={avatar.url} alt={name} className="w-[50px] rounded-full" />
+    <div>
+      <Link
+        to={`/authors/${slug}`}
+        className="flex items-center gap-x-4 py-4 border-b last:border-b-0 border-[var(--border-color)]"
+      >
+        <img src={avatar.url} alt={name} className="w-[50px] rounded-full" />
 
-      <span>
-        <p className="text-base text-[var(--text-primary)]">{name}</p>
-        <p className="mt-1 text-xs text-[var(--text-secondary)]">{field}</p>
-      </span>
+        <span>
+          <p className="text-base text-[var(--text-primary)]">{name}</p>
+          <p className="mt-1 text-xs text-[var(--text-secondary)]">{field}</p>
+        </span>
+      </Link>
     </div>
   );
 }

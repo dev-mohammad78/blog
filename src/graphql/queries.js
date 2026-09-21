@@ -15,6 +15,9 @@ const GET_BLOGS_INFO = gql`
       title
       slug
       id
+      content {
+        text
+      }
       cover {
         url
       }

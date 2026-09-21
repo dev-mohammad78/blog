@@ -6,9 +6,10 @@ import SingleCard from "./SingleCard";
 
 function Articles() {
   const { loading, data } = useQuery(GET_BLOGS_INFO);
-  
+
   if (loading) return <h4>Loading..</h4>;
 
+  const { posts } = data;
   return (
     <div>
       {/* header */}
@@ -22,7 +23,7 @@ function Articles() {
       {/* all blog */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-6">
         {/* blog */}
-        {data.posts.map((post) => (
+        {posts.map((post) => (
           <SingleCard key={post.id} {...post} />
         ))}
       </div>

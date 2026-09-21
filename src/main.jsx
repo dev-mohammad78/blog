@@ -5,6 +5,7 @@ import "./styles/fonts.css";
 import App from "./App.jsx";
 import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
 import { ApolloProvider } from "@apollo/client/react";
+import { BrowserRouter } from "react-router-dom";
 
 const client = new ApolloClient({
   link: new HttpLink({
@@ -15,6 +16,8 @@ const client = new ApolloClient({
 
 createRoot(document.getElementById("root")).render(
   <ApolloProvider client={client}>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </ApolloProvider>,
 );
