@@ -6,6 +6,7 @@ const GET_BLOGS_INFO = gql`
       authors {
         ... on Author {
           name
+          slug
           avatar {
             url
           }

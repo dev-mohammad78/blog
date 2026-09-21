@@ -1,14 +1,14 @@
 import { useParams } from "react-router-dom";
 
-function ArticleDetailsPage() {
+function BlogPage() {
   const { slug } = useParams();
 
   return (
     <div>
-      <h1>Article Details</h1>
+      <h1>BlogPage</h1>
       <p>{slug}</p>
     </div>
   );
 }
 
-export default ArticleDetailsPage;
+export default BlogPage;

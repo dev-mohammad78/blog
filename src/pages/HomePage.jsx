@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 
 import heroImage from "../assets/image.webp";
 
 function HomePage() {
   return (
-    <section className="overflow-hidden bg-[var(--hero-bg)] transition-colors duration-300">
+    <section className="overflow-hidden bg-[var(--hero-bg)] transition-colors duration-300 mt-2 rounded-lg">
       <div className="flex min-h-[360px] flex-col md:flex-row">
         {/* Text */}
         <div className="order-1 flex w-full flex-col text-center md:text-start items-center md:items-start justify-center px-6 py-10 md:w-1/2 md:px-12">
@@ -22,7 +23,7 @@ function HomePage() {
             type="button"
             className="mt-6 flex items-center gap-x-2 rounded-full bg-[var(--primary)] px-6 py-3 text-sm font-medium text-[var(--text-white)] transition-colors duration-300 hover:bg-[var(--primary-hover)]"
           >
-            <span>مشاهده مقالات</span>
+            <Link to="/blogs">مشاهده مقالات</Link>
 
             <IoIosArrowBack className="text-lg" />
           </button>
