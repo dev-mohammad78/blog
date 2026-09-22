@@ -1,23 +1,45 @@
 import { useQuery } from "@apollo/client/react";
-import { MdArrowBackIosNew } from "react-icons/md";
-
 import { GET_BLOGS_INFO } from "../graphql/queries";
+
 import BlogCard from "./BlogCard";
 
-function Articles() {
+function Articles({ sort, selectedAuthor }) {
   const { loading, data } = useQuery(GET_BLOGS_INFO);
-  console.log(data);
 
   if (loading) return <h4>Loading..</h4>;
 
-  const { posts } = data;
+  let posts = [...data.posts];
+
+  // Filter author
+  if (selectedAuthor) {
+    posts = posts.filter((post) => post.authors.id === selectedAuthor);
+  }
+
+  // Sort
+  posts.sort((a, b) => {
+    const dateA = new Date(a.publishedDate);
+    const dateB = new Date(b.publishedDate);
+
+    if (sort === "newest") {
+      return dateB - dateA;
+    }
+
+    if (sort === "oldest") {
+      return dateA - dateB;
+    }
+
+    return 0;
+  });
+
   return (
     <div>
       {/* header */}
-      <h3 className="font-semibold text-xl md:text-2xl ">مقالات</h3>
-      {/* all blog */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-6">
-        {/* blog */}
+      <div className="flex items-center justify-between">
+        <h3 className="text-xl font-semibold md:text-2xl">مقالات</h3>
+      </div>
+
+      {/* blogs */}
+      <div className="mt-6 grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
         {posts.map((post) => (
           <BlogCard key={post.id} {...post} />
         ))}
