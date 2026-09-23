@@ -12,7 +12,7 @@ function Articles({ sort, selectedAuthor }) {
 
   // Filter author
   if (selectedAuthor) {
-    posts = posts.filter((post) => post.authors.id === selectedAuthor);
+    posts = posts.filter((post) => post.authors.slug === selectedAuthor);
   }
 
   // Sort

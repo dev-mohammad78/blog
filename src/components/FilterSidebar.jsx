@@ -6,9 +6,10 @@ import { GET_AUTHORS_INFO } from "../graphql/queries";
 
 function FilterSidebar({
   sort,
-  setSort,
   selectedAuthor,
-  setSelectedAuthor,
+  onSortChange,
+  onAuthorChange,
+  onClearFilters,
   closeFilter,
 }) {
   const [authorSearch, setAuthorSearch] = useState("");
@@ -20,12 +21,6 @@ function FilterSidebar({
   const filteredAuthors = authors.filter((author) =>
     author.name.toLowerCase().includes(authorSearch.toLowerCase()),
   );
-
-  const clearFilters = () => {
-    setSort("newest");
-    setSelectedAuthor(null);
-    setAuthorSearch("");
-  };
 
   return (
     <aside className="rounded-lg border-2 border-[var(--border-color)] p-4 shadow-[var(--shadow-color)]">
@@ -52,7 +47,7 @@ function FilterSidebar({
             type="radio"
             name="sort"
             checked={sort === "newest"}
-            onChange={() => setSort("newest")}
+            onChange={() => onSortChange("newest")}
           />
 
           <span>جدیدترین</span>
@@ -63,7 +58,7 @@ function FilterSidebar({
             type="radio"
             name="sort"
             checked={sort === "oldest"}
-            onChange={() => setSort("oldest")}
+            onChange={() => onSortChange("oldest")}
           />
 
           <span>قدیمی‌ترین</span>
@@ -102,8 +97,8 @@ function FilterSidebar({
                 <input
                   type="radio"
                   name="author"
-                  checked={selectedAuthor === author.id}
-                  onChange={() => setSelectedAuthor(author.id)}
+                  checked={selectedAuthor === author.slug}
+                  onChange={() => onAuthorChange(author.slug)}
                 />
 
                 <span>{author.name}</span>
@@ -116,7 +111,10 @@ function FilterSidebar({
       {/* Clear filters */}
       <button
         type="button"
-        onClick={clearFilters}
+        onClick={() => {
+          onClearFilters();
+          setAuthorSearch("");
+        }}
         className="w-full rounded-lg border border-[var(--border-color)] p-2 text-sm transition hover:bg-[var(--primary)] hover:text-white"
       >
         پاک کردن فیلترها
