@@ -12,7 +12,6 @@ function AuthorPage() {
 
   const { author } = data;
 
-  console.log({ loading, data });
   return (
     <div>
       {/* author Details */}
