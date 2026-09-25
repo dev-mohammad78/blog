@@ -30,8 +30,9 @@ function BlogCard({ authors, title, content, cover, slug, publishedDate }) {
         </h2>
 
         {/* description */}
-        <p
-          className="
+        {content && (
+          <p
+            className="
             mt-3
             min-h-[48px]
             line-clamp-2
@@ -39,24 +40,28 @@ function BlogCard({ authors, title, content, cover, slug, publishedDate }) {
             leading-6
             text-[var(--text-secondary)]
           "
-        >
-          {content.text}
-        </p>
+          >
+            {content.text}
+          </p>
+        )}
 
         {/* author */}
+        {authors && (
+          <Link
+            to={`/authors/${authors.slug}`}
+            className="flex items-center gap-x-2 mt-auto pt-4"
+          >
+            <img
+              src={authors.avatar.url}
+              alt={authors.name}
+              className="w-[40px] h-[40px] object-cover rounded-full"
+            />
 
-        <Link
-          to={`/authors/${authors.slug}`}
-          className="flex items-center gap-x-2 mt-auto pt-4"
-        >
-          <img
-            src={authors.avatar.url}
-            alt={authors.name}
-            className="w-[40px] h-[40px] object-cover rounded-full"
-          />
-
-          <p className="text-sm text-[var(--text-secondary)]">{authors.name}</p>
-        </Link>
+            <p className="text-sm text-[var(--text-secondary)]">
+              {authors.name}
+            </p>
+          </Link>
+        )}
 
         {/* date */}
         <p className="mt-5 text-sm text-[var(--text-secondary)]">
