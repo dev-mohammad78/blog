@@ -2,11 +2,29 @@ import { useQuery } from "@apollo/client/react";
 import { GET_BLOGS_INFO } from "../graphql/queries";
 
 import BlogCard from "./BlogCard";
+import BlogCardSkeleton from "./BlogCardSkeleton";
 
 function Articles({ sort, selectedAuthor }) {
   const { loading, data } = useQuery(GET_BLOGS_INFO);
 
-  if (loading) return <h4>Loading..</h4>;
+  // loader
+  if (loading) {
+    return (
+      <div>
+        {/* header */}
+        <div className="flex items-center justify-between">
+          <h3 className="text-xl font-semibold md:text-2xl">مقالات</h3>
+        </div>
+
+        {/* skeleton blogs */}
+        <div className="mt-6 grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
+          {[1, 2, 3, 4, 5, 6].map((item) => (
+            <BlogCardSkeleton key={item} />
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   let posts = [...data.posts];
 

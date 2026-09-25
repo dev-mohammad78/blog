@@ -4,11 +4,12 @@ import { MdArrowBackIosNew } from "react-icons/md";
 
 import { GET_BLOGS_INFO } from "../graphql/queries";
 import BlogCard from "./BlogCard";
+import LatestArticlesSkeleton from "./LatestArticlesSkeleton";
 
 function LatestArticles() {
   const { loading, data } = useQuery(GET_BLOGS_INFO);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LatestArticlesSkeleton />;
 
   const latestBlogs = data.posts.slice(0, 3);
 
