@@ -6,7 +6,7 @@ import LatestArticles from "../components/LatestArticles";
 
 function HomePage() {
   return (
-    <section className="overflow-hidden transition-colors duration-300 mt-2 rounded-lg">
+    <section className="overflow-hidden transition-colors duration-300 md:mt-2 md:rounded-lg">
       <div className="min-h-[250px] flex flex-col md:flex-row gap-x-8 bg-[var(--hero-bg)]">
         {/* Text */}
         <div className="order-1 flex w-full flex-col text-center md:text-start items-center md:items-start justify-center px-6 py-10 md:w-1/2 md:px-12">

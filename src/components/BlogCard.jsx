@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { formatPersianDate } from "../helper/formatPersianDate";
 
 function BlogCard({ authors, title, content, cover, slug, publishedDate }) {
+
   return (
     <div className="h-full flex flex-col border-2 border-[var(--border-color)] rounded-lg shadow-[var(--shadow-color)] overflow-hidden">
       {/* image */}

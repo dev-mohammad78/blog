@@ -49,7 +49,7 @@ function AuthorPage() {
             <BlogCard
               key={post.id}
               cover={post.cover}
-              slug={post.cover}
+              slug={post.slug}
               title={post.title}
               publishedDate={post.publishedDate}
             />

@@ -74,6 +74,7 @@ const GET_POST_INFO = gql`
         ... on Author {
           name
           field
+          slug
           avatar {
             url
           }
