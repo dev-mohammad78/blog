@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { GET_POST_INFO } from "../graphql/queries";
 import { FiArrowLeft } from "react-icons/fi";
 import { formatPersianDate } from "../helper/formatPersianDate";
+import CommentForm from "../components/CommentForm";
 
 function BlogPage() {
   const { slug } = useParams();
@@ -16,6 +17,7 @@ function BlogPage() {
 
   return (
     <div className="p-4 md:p-0">
+      {/* post */}
       <div className="mt-2 p-2 border border-[var(--border-color)] rounded-lg shadow shadow-[var(--shadow-color)]">
         {/* title */}
         <div className="p-3 md:my-4 flex justify-between items-center text-[var(--text-primary)]">
@@ -60,6 +62,10 @@ function BlogPage() {
         <div className="p-4 mt-2">
           <p className=" leading-10">{post.content.text}</p>
         </div>
+      </div>
+      {/* Comment */}
+      <div className="mt-5 p-2 border border-[var(--border-color)] rounded-lg shadow shadow-[var(--shadow-color)]">
+        <CommentForm slug={post.slug} />
       </div>
     </div>
   );
