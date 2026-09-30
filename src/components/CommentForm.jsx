@@ -2,6 +2,7 @@ import { useMutation } from "@apollo/client/react";
 import { useState } from "react";
 import { SEND_COMMENT } from "../graphql/mutations";
 import { toast } from "react-toastify";
+import Comments from "./Comments";
 
 function CommentForm({ slug }) {
   const [name, setName] = useState("");
@@ -16,7 +17,6 @@ function CommentForm({ slug }) {
       slug,
     },
   });
-  console.log(data);
 
   const submitHandler = () => {
     if (name && email && text) {
@@ -116,6 +116,8 @@ function CommentForm({ slug }) {
             ارسال کامنت
           </button>
         )}
+
+        <Comments slug={slug} />
       </div>
     </section>
   );
