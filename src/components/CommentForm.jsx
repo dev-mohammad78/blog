@@ -1,26 +1,34 @@
+import { useMutation } from "@apollo/client/react";
 import { useState } from "react";
+import { SEND_COMMENT } from "../graphql/mutations";
+import { toast } from "react-toastify";
 
 function CommentForm({ slug }) {
-  const [user, setUser] = useState({
-    userName: "",
-    email: "",
-    text: "",
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [text, setText] = useState("");
+
+  const [sendComment, { loading, data }] = useMutation(SEND_COMMENT, {
+    variables: {
+      name,
+      email,
+      text,
+      slug,
+    },
   });
+  console.log(data);
 
-  const changeHandler = (e) => {
-    const { name, value } = e.target;
-    setUser((prev) => ({ ...prev, [name]: value }));
+  const submitHandler = () => {
+    if (name && email && text) {
+      sendComment();
+    } else {
+      toast.warn("تمام فیلد ها را پر کنید");
+    }
   };
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-
-    setUser({
-      userName: "",
-      email: "",
-      text: "",
-    });
-  };
+  if (data) {
+    toast.success("کامنت شما در انتظار تایید می‌باشد");
+  }
 
   return (
     <section className="mt-3">
@@ -42,10 +50,10 @@ function CommentForm({ slug }) {
 
             <input
               type="text"
-              id="username"
-              name="userName"
-              value={user.userName}
-              onChange={changeHandler}
+              id="name"
+              name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               placeholder="نام کاربری خود را وارد کنید"
               className="w-full rounded-lg border border-[var(--border-color)] bg-[var(--bg-primary)] px-4 py-3 text-sm text-[var(--text-primary)] outline-none transition focus:border-[var(--primary)]"
             />
@@ -64,8 +72,8 @@ function CommentForm({ slug }) {
               type="text"
               id="email"
               name="email"
-              value={user.email}
-              onChange={changeHandler}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="ایمیل خود را وارد کنید"
               className="w-full rounded-lg border border-[var(--border-color)] bg-[var(--bg-primary)] px-4 py-3 text-sm text-[var(--text-primary)] outline-none transition focus:border-[var(--primary)]"
             />
@@ -84,8 +92,8 @@ function CommentForm({ slug }) {
           <textarea
             id="text"
             name="text"
-            value={user.text}
-            onChange={changeHandler}
+            value={text}
+            onChange={(e) => setText(e.target.value)}
             rows="6"
             placeholder="نظر خود را بنویسید..."
             className="w-full resize-none rounded-lg border border-[var(--border-color)] bg-[var(--bg-primary)] px-4 py-3 text-sm text-[var(--text-primary)] outline-none transition focus:border-[var(--primary)]"
@@ -93,13 +101,21 @@ function CommentForm({ slug }) {
         </div>
 
         {/* submit */}
-        <button
-          type="submit"
-          onClick={submitHandler}
-          className="w-full md:w-auto mt-5 px-7 py-3 rounded-lg bg-[var(--primary)] text-white text-sm font-medium transition hover:bg-[var(--primary-hover)]"
-        >
-          ارسال کامنت
-        </button>
+        {loading ? (
+          <button
+            disabled
+            className="w-full md:w-auto px-7 py-3 rounded-lg bg-[var(--primary-light)] text-white text-sm font-medium"
+          >
+            در حال ارسال
+          </button>
+        ) : (
+          <button
+            onClick={submitHandler}
+            className="w-full md:w-auto px-7 py-3 rounded-lg bg-[var(--primary)] text-white text-sm font-medium transition hover:bg-[var(--primary-hover)]"
+          >
+            ارسال کامنت
+          </button>
+        )}
       </div>
     </section>
   );
