@@ -92,7 +92,7 @@
   --hero-bg: #172a4a;
   --hero-text: #f8fafc;
   --hero-description: #cbd5e1;
-  
+
   /* Shadow */
   --shadow-color: rgb(0 0 0 / 0.25);
 }
@@ -111,4 +111,16 @@ body {
   font-family: var(--sans);
   background-color: var(--bg-secondary);
   color: var(--text-primary);
+}
+
+.Toastify__toast {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.dark .Toastify__toast {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
 }

@@ -6,6 +6,7 @@ import BlogsPage from "./pages/BlogsPage";
 import BlogPage from "./pages/BlogPage";
 import AuthorsPage from "./pages/AuthorsPage";
 import AuthorPage from "./pages/AuthorPage";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -17,6 +18,12 @@ function App() {
         <Route path="/authors" element={<AuthorsPage />} />
         <Route path="/authors/:slug" element={<AuthorPage />} />
       </Routes>
+      <ToastContainer
+        position="top-left"
+        autoClose={3000}
+        rtl={true}
+        theme="light"
+      />
     </Layout>
   );
 }
