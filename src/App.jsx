@@ -7,6 +7,7 @@ import BlogPage from "./pages/BlogPage";
 import AuthorsPage from "./pages/AuthorsPage";
 import AuthorPage from "./pages/AuthorPage";
 import NotFoundPage from "./pages/404";
+import AboutPage from "./pages/AboutPage";
 import { ToastContainer } from "react-toastify";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/blogs/:slug" element={<BlogPage />} />
         <Route path="/authors" element={<AuthorsPage />} />
         <Route path="/authors/:slug" element={<AuthorPage />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <ToastContainer

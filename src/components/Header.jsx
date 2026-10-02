@@ -85,7 +85,7 @@ function Header() {
                 end={item.path === "/"}
                 onClick={closeMenu}
                 className={({ isActive }) =>
-                  `rounded-lg px-4 py-3 text-base transition-colors duration-200 ${isActive ? "bg-[var(--primary-light)] text-[var(--text-white)]" : "text-[var(--primary-light)] hover:bg-[var(--surface-secondary)] hover:text-[var(--text-white)]"}`
+                  `rounded-lg px-4 py-3 text-base transition-colors duration-200 ${isActive ? "bg-[var(--primary-light)] text-[var(--text-white)]" : "text-[var(--primary-light)]"}`
                 }
               >
                 {item.title}

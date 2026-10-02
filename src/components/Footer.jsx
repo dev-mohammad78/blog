@@ -17,7 +17,7 @@ function Footer() {
               <h2 className="text-lg font-bold">وبلاگ برنامه نویسی</h2>
             </div>
 
-            <p className="text-sm leading-7 text-[var(blue-100)]">
+            <p className="text-sm leading-7 text-[var(--primary-light)]">
               جایی برای یادگیری، تجربه و اشتراک دانش در زمینه برنامه‌نویسی،
               تکنولوژی و توسعه فردی.
             </p>
@@ -27,7 +27,7 @@ function Footer() {
           <div className="md:mr-12">
             <h3 className="mb-4 font-bold">دسترسی سریع</h3>
 
-            <ul className="space-y-3 text-sm text-[var(blue-100)]">
+            <ul className="space-y-3 text-sm text-[var(--primary-light)]">
               <li>
                 <Link
                   to="/"
@@ -70,7 +70,7 @@ function Footer() {
           <div>
             <h3 className="mb-4 font-bold">ما را دنبال کنید</h3>
 
-            <p className="mb-4 text-sm leading-6 text-[var(blue-100)]">
+            <p className="mb-4 text-sm leading-6 text-[var(--primary-light)]">
               برای اطلاع از مطالب جدید ما را در شبکه‌های اجتماعی دنبال کنید.
             </p>
 
@@ -103,7 +103,7 @@ function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="mt-8 border-t border-[var(--border-color)] pt-5 text-center text-sm text-[var(blue-100)]">
+        <div className="mt-5 border-t border-[var(--border-color)] pt-5 text-center text-sm text-[var(--primary-light)]">
           <p>
             © {new Date().getFullYear()} وبلاگ برنامه نویسی. تمامی حقوق محفوظ
             است.
