@@ -38,6 +38,12 @@ const GET_AUTHORS_INFO = gql`
       avatar {
         url
       }
+      description {
+        html
+      }
+      posts {
+        id
+      }
     }
   }
 `;
