@@ -3,12 +3,13 @@ import { GET_AUTHOR_INFO } from "../graphql/queries";
 import { useParams } from "react-router-dom";
 import sanitizeHtml from "sanitize-html";
 import BlogCard from "../components/BlogCard";
+import Loader from "../components/Loader";
 
 function AuthorPage() {
   const { slug } = useParams();
   const { loading, data } = useQuery(GET_AUTHOR_INFO, { variables: { slug } });
 
-  if (loading) return <p>loading</p>;
+  if (loading) return <Loader />;
 
   const { author } = data;
 

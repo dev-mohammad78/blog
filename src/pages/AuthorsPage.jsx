@@ -5,11 +5,12 @@ import sanitizeHtml from "sanitize-html";
 
 import { GET_AUTHORS_INFO } from "../graphql/queries";
 import AuthorsImage from "../assets//Authors.webp";
+import Loader from "../components/Loader";
 
 function AuthorsPage() {
   const { loading, data } = useQuery(GET_AUTHORS_INFO);
 
-  if (loading) <p>Loading</p>;
+  if (loading) return <Loader />;
 
   const authors = data?.authors || [];
 

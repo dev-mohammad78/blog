@@ -4,6 +4,7 @@ import { GET_POST_INFO } from "../graphql/queries";
 import { FiArrowLeft } from "react-icons/fi";
 import { formatPersianDate } from "../helper/formatPersianDate";
 import CommentForm from "../components/CommentForm";
+import Loader from "../components/Loader";
 
 function BlogPage() {
   const { slug } = useParams();
@@ -11,7 +12,7 @@ function BlogPage() {
   const { loading, data } = useQuery(GET_POST_INFO, { variables: { slug } });
   const navigate = useNavigate();
 
-  if (loading) return <p>Loading..</p>;
+  if (loading) return <Loader />;
 
   const { post } = data;
 
